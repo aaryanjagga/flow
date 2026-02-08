@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softly | A Gentle Space for Your Cycle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Firebase Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="theme-switch" id="themeBtn" aria-label="Toggle theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
+    <div class="sync-indicator">
+        <span class="dot pulse"></span>
+        <span id="syncText">Your storage is active</span>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <svg class="flower-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 12c2.5-2.5 5-2.5 5 0s-2.5 2.5-5 0c-2.5 2.5-5 2.5-5 0s2.5-2.5 5 0Z"/>
+                <path d="M12 12c-2.5-2.5-2.5-5 0-5s2.5 2.5 0 5c2.5-2.5 2.5-5 0-5s-2.5 2.5 0 5Z"/>
+                <path d="M12 12c2.5 2.5 2.5 5 0 5s-2.5-2.5 0-5c-2.5 2.5-2.5 5 0 5s2.5-2.5 0-5Z"/>
+                <circle cx="12" cy="12" r="1"/>
+            </svg>
+            <div id="soothingLine" class="soothing-line">Finding a gentle thought...</div>
+            <div class="app-title">Softly</div>
+        </header>
+
+        <div class="card" id="statusCard">
+            <div class="status-area">
+                <div id="statusBadge" class="badge hidden">Calculating...</div>
+                <div id="insightText" class="insight-text">Welcome home. Preparing your sanctuary...</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 id="entryHeading">Track Cycle</h2>
+            <div class="input-group">
+                <label for="dateInput" id="dateLabel">When did it begin?</label>
+                <input type="date" id="dateInput">
+            </div>
+            <button class="btn-primary" id="logBtn">Log Start Date</button>
+        </div>
+
+        <div class="card">
+            <h2 id="calendarMonth">This Month</h2>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+
+        <div class="card hidden" id="settingsCard">
+            <h2>Settings</h2>
+            <div class="input-group">
+                <label for="cycleLength">Average Cycle (Days)</label>
+                <input type="number" id="cycleLength" value="28">
+            </div>
+            <div class="input-group">
+                <label for="periodDuration">Default Duration (Days)</label>
+                <input type="number" id="periodDuration" value="4">
+            </div>
+            <button class="btn-text" id="clearData" style="color: #e07a7a;">Clear history</button>
+        </div>
+
+        <div class="settings-toggle">
+            <button class="btn-text" id="toggleSettings">Preferences</button>
+        </div>
+
+        <div class="privacy-footer" style="text-align: center; font-size: 0.75rem; color: var(--text-soft); margin-top: 50px; opacity: 0.6; padding-bottom: 40px;">
+            Private. Secure. Softly.
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

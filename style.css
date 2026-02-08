@@ -1,0 +1,277 @@
+/* Softly - A Gentle Period Tracker*/
+        :root {
+            /* Lovely & Soothing Palette */
+            --bg-color: #fdf6f7;
+            --card-bg: #ffffff;
+            --text-main: #5a4a4b;
+            --text-soft: #9a8687;
+            --accent-soft: #f2e1e3;
+            --status-normal: #e3f2e1; /* Soft Sage */
+            --status-early: #fcf1d4;  /* Soft Butter */
+            --status-delayed: #f2e1e1; /* Soft Rose */
+            --primary: #d4a5a5;       /* Dusty Rose */
+            --primary-hover: #c68e8e;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --card-shadow: 0 10px 30px rgba(212, 165, 165, 0.1);
+        }
+
+        [data-theme='dark'] {
+            --bg-color: #241e1e;
+            --card-bg: #2d2626;
+            --text-main: #f0e6e7;
+            --text-soft: #bca9aa;
+            --accent-soft: #3d3233;
+            --status-normal: #344031;
+            --status-early: #4d4632;
+            --status-delayed: #4d3232;
+            --primary: #e6b8b8;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.8s ease;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 440px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .flower-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 12px;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+
+        .soothing-line {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 12px;
+            min-height: 2.2em;
+            line-height: 1.2;
+            transition: opacity 0.5s ease;
+        }
+
+        .app-title {
+            font-size: 0.75rem;
+            letter-spacing: 0.4rem;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            font-weight: 500;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 24px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        h2 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 22px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            margin-bottom: 10px;
+            padding-left: 4px;
+        }
+
+        input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 2px solid var(--accent-soft);
+            background: transparent;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            background: rgba(212, 165, 165, 0.05);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 16px;
+            border-radius: 18px;
+            border: none;
+            background-color: var(--primary);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(212, 165, 165, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            filter: grayscale(0.5);
+        }
+
+        .status-area {
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+
+        .status-normal { background: var(--status-normal); color: #3c4d39; }
+        .status-early { background: var(--status-early); color: #5c5232; }
+        .status-delayed { background: var(--status-delayed); color: #5c3c3c; }
+
+        .insight-text {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            padding: 0 10px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .calendar-header {
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            border-radius: 50%;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .day.today { background: var(--accent-soft); font-weight: 600; }
+        .day.period { background-color: var(--primary); color: white; }
+        .day.empty { opacity: 0.15; }
+
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-soft);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--card-shadow);
+            z-index: 10;
+        }
+
+        .hidden { display: none !important; }
+
+        .sync-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 0.7rem;
+            color: var(--text-soft);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.6;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
